@@ -1,0 +1,9 @@
+<p>檢裝單建立作業</p>
+<div fxFill fxLayout="row">
+  <form [formGroup]="firstFormGroup">
+    <div class="step">1.掃描移轉單QR code</div>
+    <video id="video" width="260" height="195" style="border: 1px solid gray"></video>
+    <div class="step">2.掃描結果</div>
+    <app-trans-view [ctrlPanelVisible]="false"></app-trans-view>
+  </form>
+</div>

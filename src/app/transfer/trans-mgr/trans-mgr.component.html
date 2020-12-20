@@ -1,0 +1,78 @@
+<style>
+  .title {
+    font-size : 18px;
+    font-weight : bold;
+  }
+  .mg {
+    margin: 10px;
+  }
+</style>
+<div fxFill fxLayout="column">
+  <div id="header" fxLayout="row">
+    <div class="mg title">移轉單管理頁面</div>
+  </div>
+  <div fxFlex="grow" fxLayout="row" fxLayout.xs="column">
+    <div id="nav" fxLayout="column" fxLayout.xs="row" fxFlex="150px" fxFlex.xs="none" fxLayoutGap="10px">
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'trans-view'">查詢</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'trans-creation'">新建</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'trans-feedback'">壓型回報</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="navToBack()">回上頁</button>
+    </div>
+    <div id="article" fxLayout="column" fxFlex="grow" fxFlex.xs="grow">
+      <div *ngIf="curViewName == 'trans-view'" fxFill>
+          <app-trans-view></app-trans-view>
+      </div>
+      <div *ngIf="curViewName == 'trans-creation'" fxLayout="column" fxFill >
+        <button fxFlexAlign="center" mat-raised-button color="primary" (click)="popupOrderView()">選取一筆工令</button>
+        <!-- 工令 -->
+        <mat-form-field>
+          <mat-label>工令卡號</mat-label>
+          <input matInput #input [formControl]="orderIdFCtrl">
+        </mat-form-field>
+
+        <!-- 材質 -->
+        <mat-form-field>
+          <mat-label>材質</mat-label>
+          <input type="text" matInput [formControl]="prodFCtrl">
+        </mat-form-field>
+
+        <!-- 規格 -->
+        <mat-form-field>
+          <mat-label>規格</mat-label>
+          <input type="text" matInput [formControl]="prodSpecFCtrl">
+        </mat-form-field>
+
+        <!-- 客戶代碼 -->
+        <mat-form-field>
+          <mat-label>客戶代碼</mat-label>
+          <input type="text" matInput [formControl]="custFCtrl">
+        </mat-form-field>
+
+        <!-- 壓型數量 -->
+        <mat-form-field>
+          <mat-label>壓型數量(PCS)</mat-label>
+          <input matInput type="number" [formControl]="amountFCtrl">
+        </mat-form-field>
+
+        <!-- 出貨日期 -->
+        <mat-form-field>
+          <mat-label>出貨日期(請選取)</mat-label>
+          <input matInput [matDatepicker]="picker" [formControl]="shipDateFCtrl">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div fxLayout="row">
+          <div fxFlex></div>
+          <div><button mat-raised-button (click)="navToBack()">取消</button></div>
+          <div><button mat-raised-button color="primary" (click)="doCreateTransNo()">建立移轉單</button></div>
+        </div>
+      </div>
+      <div *ngIf="curViewName == 'trans-feedback'" fxFill>
+        <app-trans-feedback></app-trans-feedback>
+      </div>
+    </div>
+    <div id="aside"fxFlex="20%" fxFlex.xs="none"></div>
+  </div>
+  <div id="footer"></div>
+</div>

@@ -1,0 +1,55 @@
+.mat-header-cell.mat-column-orderId {
+  color: red;
+}
+
+.mat-cell.mat-column-orderId {
+  font-weight: bold;
+}
+
+.mat-column-orderId {
+  width : 120px;
+}
+
+.mat-column-prodId {
+    width : 120px;
+}
+
+.mat-column-prodSpec {
+width : 120px;
+}
+
+.mat-column-custCode {
+  width : 120px;
+}
+
+.mat-column-amount {
+  width : 120px;
+}
+
+.mat-column-shipDate {
+  width : 120px;
+}
+
+.mat-column-createDt {
+  width : 120px;
+}
+
+.mat-column-createUser {
+  width : 120px;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #00A0E9;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}

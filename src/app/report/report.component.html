@@ -1,0 +1,52 @@
+<style>
+  #header{
+    background-color : #ffeebb;
+  }
+
+  #nav{
+    background-color : #ccccff;
+  }
+
+  #aside{
+    background-color : #ccccff;
+  }
+
+  #article{
+    background-color : #dddd88;
+  }
+
+  #footer{
+    background-color : #ffeebb;
+  }
+  .title {
+    font-size : 18px;
+    font-weight : bold;
+  }
+  .mg {
+    margin: 10px;
+  }
+</style>
+
+<div fxFill fxLayout="column">
+  <div id="header" fxLayout="row">
+    <div class="mg title">報表管理頁面</div>
+  </div>
+  <div fxFlex="grow" fxLayout="row" fxLayout.xs="column">
+    <div id="nav" fxLayout="column" fxLayout.xs="row" fxFlex="150px" fxFlex.xs="none" fxLayoutGap="10px">
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'rpt-view1'">報表類型1</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'rpt-view2'">報表類型2</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'rpt-view3'">報表類型3</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="navToBack()">回上頁</button>
+    </div>
+    <div id="article" fxLayout="column" fxFlex="grow" fxFlex.xs="grow">
+      <div *ngIf="curViewName == 'rpt-view1'" fxFill>
+      </div>
+      <div *ngIf="curViewName == 'rpt-view2'" fxLayout="column" fxFill >
+      </div>
+      <div *ngIf="curViewName == 'rpt-view3'" fxLayout="column" fxFill >
+      </div>
+    </div>
+    <div id="aside"fxFlex="20%" fxFlex.xs="none">aside</div>
+  </div>
+  <div id="footer">footer</div>
+</div>

@@ -1,0 +1,32 @@
+<style>
+  .title {
+    font-size : 18px;
+    font-weight : bold;
+  }
+  .mg {
+    margin: 10px;
+  }
+</style>
+
+<div fxFill fxLayout="column">
+  <div id="header" fxLayout="row">
+    <div class="mg title">檢裝管理頁面</div>
+  </div>
+  <div fxFlex="grow" fxLayout="row" fxLayout.xs="column">
+    <div id="nav" fxLayout="column" fxLayout.xs="row" fxFlex="150px" fxFlex.xs="none" fxLayoutGap="10px">
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'pkg-view'">查詢</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="curViewName = 'pkg-creation'">新建</button>
+      <button fxFlexAlign="center" mat-raised-button color="primary" (click)="navToBack()">回上頁</button>
+    </div>
+    <div id="article" fxLayout="column" fxFlex="grow" fxFlex.xs="grow">
+      <div *ngIf="curViewName == 'pkg-view'" fxFill>
+        <app-pkg-view></app-pkg-view>
+      </div>
+      <div *ngIf="curViewName == 'pkg-creation'" fxLayout="column" fxFill >
+        <app-pkg-creation></app-pkg-creation>
+      </div>
+    </div>
+    <div id="aside"fxFlex="20%" fxFlex.xs="none"></div>
+  </div>
+  <div id="footer"></div>
+</div>
